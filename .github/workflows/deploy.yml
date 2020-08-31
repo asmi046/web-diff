@@ -36,4 +36,4 @@ jobs:
          SOURCE: "dist/"
          REMOTE_HOST: asmi-studio.myjino.ru
          REMOTE_USER: asmi-studio
-         TARGET: /domains/asmi-studio.myjino.ru/
+         TARGET: /domains/test.web-diff.ru/
