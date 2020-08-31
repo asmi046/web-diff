@@ -1,0 +1,29 @@
+{
+  "name": "web-diff",
+  "version": "1.0.0",
+  "description": "Web-diff - project",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server src --no-notify --no-ui --cwd src --files index.html,css/**/*",
+    "test": "editorconfig-checker",
+    "html": "html-minifier --remove-comments --collapse-whitespace --input-dir src --output-dir dist --file-ext html",
+    "styles": "postcss src/css/style.css --use postcss-import --use postcss-csso --no-map --output dist/css/style.css",
+    "imgcopy": "xcopy src\\img dist\\img /H /Y /C /R /S /I",
+    "build": "npm run html && npm run styles && npm run imgcopy",
+    "deploy": "cd dist && rsync --archive --compress --delete .  vaganol6_ssh@vaganol6.beget.tech:/html.syamba-toys.ru"
+  },
+  "keywords": [
+    "web",
+    "html"
+  ],
+  "author": "Asmi-Studio",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.12",
+    "editorconfig-checker": "^3.1.0",
+    "html-minifier": "^4.0.0",
+    "postcss-cli": "^7.1.1",
+    "postcss-csso": "^4.0.0",
+    "postcss-import": "^12.0.1"
+  }
+}
