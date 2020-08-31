@@ -10,7 +10,7 @@
     "styles": "postcss src/css/style.css --use postcss-import --use postcss-csso --no-map --output dist/css/style.css",
     "imgcopy": "xcopy src\\img dist\\img /H /Y /C /R /S /I",
     "build": "npm run html && npm run styles && npm run imgcopy",
-    "deploy": "cd dist && rsync --archive --compress --delete .  vaganol6_ssh@vaganol6.beget.tech:/html.syamba-toys.ru"
+    "deploy": "cd dist && rsync --archive --compress --delete .  asmi-studio@asmi-studio.myjino.ru:/domains/asmi-studio.myjino.ru/"
   },
   "keywords": [
     "web",
