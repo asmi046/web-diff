@@ -25,4 +25,13 @@ jobs:
       - run: npm ci
       #- run: npm run build
       # Deploy
-      - run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . asmi-studio@asmi-studio.myjino.ru:/domains/asmi-studio.myjino.ru/
+      #- run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . asmi-studio@asmi-studio.myjino.ru:/domains/asmi-studio.myjino.ru/
+      - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@v2.1.1
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.key }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: asmi-studio.myjino.ru
+          REMOTE_USER: asmi-studio
+          TARGET: /domains/asmi-studio.myjino.ru/
