@@ -26,7 +26,7 @@ jobs:
       #- run: npm run build
       # Deploy
       #- run: cd dist && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . asmi-studio@asmi-studio.myjino.ru:/domains/asmi-studio.myjino.ru/
-      - name: DeploytoServer
+      #- name: DeploytoServer
       uses: easingthemes/ssh-deploy@v2.1.1
       env:
           SSH_PRIVATE_KEY: ${{ secrets.key }}
